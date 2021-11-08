@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header.ejs') %>
+    <link rel="stylesheet" href="/CSS/index.css">
+</head>
+
+<body>
+    <!-- header -->
+    <section class="header">
+        <%- include('./partials/navbar.ejs') %>
+        <div class="text-box">
+            <h1>Blog Handim</h1>
+            <p>A platform for bloggers to compete and earn</p>
+            <a href="#" class="linkbtn">Join the Community</a>
+        </div>
+    </section>
+
+<!-- Services -->
+    <section class="service">
+        <h1>Services we provide</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi optio culpa unde ratione repellat, voluptatum, omnis cum nemo quis repellendus vitae mollitia alias est autem.</p>
+        <div class="row">
+            <div class="service-col">
+                <h3>Blogs</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quod sapiente facere, distinctio quis tempora consequuntur nostrum in perferendis optio impedit tenetur aliquam aliquid placeat.</p>
+            </div>
+            <div class="service-col">
+                <h3>Write and Earn</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quod sapiente facere, distinctio quis tempora consequuntur nostrum in perferendis optio impedit tenetur aliquam aliquid placeat.</p>
+            </div>  
+            <div class="service-col">  
+                <h3>Read and Earn</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quod sapiente facere, distinctio quis tempora consequuntur nostrum in perferendis optio impedit tenetur aliquam aliquid placeat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- signup -->
+    <section class = "signup-body">
+        <div class="signup-box">
+            <img src="images/avatar.png" alt="avatar" class="avatar">
+            <h1>Sign Up Here</h1>
+            <form action="">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Enter Username">
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="Enter Username">
+                <label for="password1">Password</label>
+                <input type="password" name="password1" placeholder="Enter Password">
+                <label for="password2">Confirm Password</label>
+                <input type="password" name="password2" placeholder="Confirm Password">
+                <input type="submit" name="submit" value="signup">
+                <a href="#">Already have an account?</a>
+            </form>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <h4>About us</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum illum id nobis dolorem autem excepturi,<br> sapiente mollitia ea similique rem eveniet. Excepturi dolor voluptatum repudiandae.</p>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i> by Roatt Tilma</p>
+    </footer>
+</body>
