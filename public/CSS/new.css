@@ -1,0 +1,20 @@
+#title{
+    border : 1px solid black;
+    width : 80%;
+    height : 35px;
+}
+
+.form-group{
+    margin-left: 5%;
+}
+
+#description{
+    width : 80%;
+}
+
+.submitbtn{
+    font-size : 105%;
+    margin : 3% 0 0 5%;
+    padding : 0.5% 2% 0.5% 2%;
+}
+
