@@ -1,0 +1,26 @@
+.outer-wrap{
+    margin : 5% 3% 0 3%;
+    box-sizing: content-box;
+    border: 1px solid ;
+}
+
+.heading{
+    margin-left : 5%;
+}
+
+.contents{
+    padding: 2% 0 2% 2%;
+}
+
+.title{
+    font-size : 150%;
+}
+
+.date, .author{
+    opacity: 0.5;
+    font-size : 125%;
+}
+
+.description{
+    font-size : 120%;
+}

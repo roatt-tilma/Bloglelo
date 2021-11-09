@@ -29,13 +29,12 @@ app.listen(port, () => {
 });
 
 const usersRouter = require('./routes/users');
+const blogsRouter = require('./routes/blogs');
 
 app.use('/users', usersRouter);
+app.use('/blogs',blogsRouter);
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'HOME' });
 });
 
-app.get('/blogs', (req, res) => {
-    res.render('blogspage', { title : "BLOGS" });
-});
