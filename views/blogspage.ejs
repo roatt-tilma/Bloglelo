@@ -3,25 +3,25 @@
 <head>
     <%- include('./partials/header.ejs') %>
     <link rel="stylesheet" href="/CSS/index.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/blogspage.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 
 <body>
 
     <div class="container">
-        <h1 class="mb-4"> Blog Articles </h1>
+        <h1 class="heading"> Blog Articles </h1>
 
-        <div class = "card mt-4">
-            <div class="card-body">
-                <h4 class="card-title">Title</h4>
-                <div class="card-subtitle text-muted mb-2">
+        <div class = "outer-wrap">
+            <div class="contents">
+                <h4 class="title">Title</h4>
+                <div class="date">
                     Date Here
                 </div>
-                <div class="card-subtitle text-muted mb-2">
+                <div class="author">
                     Author
                 </div>
-                <div class="card-text mb-2"> Article Description </div>
+                <div class="description"> Article Description </div>
             </div>
         </div>
     </div>
