@@ -4,21 +4,23 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node app.js"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
     },
     "keywords": [],
     "author": "roshanbhattmnr@gmail.com",
     "license": "ISC",
     "dependencies": {
-      "ejs": "^3.1.6",
-      "express": "^4.17.1",
-      "nodemon": "^2.0.9"
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "mongoose": "^6.0.12",
+        "nodemon": "^2.0.9"
     },
     "engines": {
-      "node": "14.17.1",
-      "npm": "6.14.13"
+        "node": "14.17.1",
+        "npm": "6.14.13"
     },
     "engineStrict": true
-  }
-  
+}
