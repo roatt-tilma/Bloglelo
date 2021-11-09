@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/blogspage.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+
+
+    <!-- <div class="container">
+        <h1 class="heading"> Blog Articles </h1>
+
+        <div class = "outer-wrap">
+            <div class="contents">
+                <h4 class="title">Title</h4>
+                <div class="date">
+                    Date Here
+                </div>
+                <div class="author">
+                    Author
+                </div>
+                <div class="description"> Article Description </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <h1 class="heading"> Blog Articles </h1>
+
+        <a href="#" class = "createbtn"> Create new blog </a>
+
+        <% blogs.forEach(blog => { %>
+        <div class = "outer-wrap">
+            <div class="contents">
+                <h4 class="title"><%= blog.title %></h4>
+                <div class="date">
+                    <%= blog.createdAt.toLocaleDateString() %>
+                </div>
+                <div class="author">
+                    Author
+                </div>
+                <div class="description"> <%= blog.description %> </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+
+
+
+    
+    
+</body>
+
+</html>
