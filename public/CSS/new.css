@@ -1,5 +1,14 @@
+*{
+    color: black;
+}
+
+#title{
+    color : black;
+}
+
 textarea:focus,
 input:focus{ 
+    color : black;
     outline: none; 
 }
 
