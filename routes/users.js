@@ -9,7 +9,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').get(userController.add_user);
+router.route('/add').post(userController.add_user);
 
 
 module.exports = router;

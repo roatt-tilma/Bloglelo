@@ -6,37 +6,49 @@ const add_user = (req, res) => {
     const password = req.body.password;
     const confpassword = req.body.confpassword;
 
-    console.log(User.find({ "email": email }));
-    console.log(User.find({ "username": username }));
 
-    if (User.find({ "email": email }).limit(1)){
-        if (User.find({ "username": username }).limit(1)){
-            if (password === confpassword){
-                const newUser = new User({
-                    email: email,
-                    username: username,
-                    password: password
-                });
-                newUser.save()
-                .then(() => {
-                    res.render('login', { title: 'LOGIN' });
-                })
-                .catch(err => res.status(400).json('Error: ' + err));
-            }
-            else{
-                console.log('Please enter same password to confirm');
-                res.json('Error: Please enter same password to confirm');
-            }
+    User.find({ email: email }, (err, data) => {
+        if(err){
+            res.status(400).json('Error: ' + err);
         }
         else{
-            console.log('Given username is already in use');
-            res.json('Error: Given username is already in use');
+            if(data.length === 0){
+                User.find({ username: username }, (err, data) => {
+                    if(err){
+                        res.status(400).json('Error: ' + err);
+                    }
+                    else{
+                        if(data.length === 0){
+                            if (password === confpassword){
+                                const newUser = new User({
+                                    email: email,
+                                    username: username,
+                                    password: password
+                                });
+                                newUser.save()
+                                .then(() => {
+                                    res.redirect('/');
+                                })
+                                .catch(err => res.status(400).json('Error: ' + err));
+                            }
+                            else{
+                                console.log('Please enter same password to confirm');
+                                res.json('Error: Please enter same password to confirm');
+                            }
+                        }
+                        else{
+                            console.log('Given username is already in use');
+                            res.json('Error: Given username is already in use');
+                        }
+                    }
+                })
+            }
+            else{
+                console.log('Given email is already in use');
+                res.json('Error: Given email is already in use');
+            }
         }
-    }
-    else{
-        console.log('Given email is already in use');
-        res.json('Error: Given email is already in use');
-    }
+    })
 
 }
 
