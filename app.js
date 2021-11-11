@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const mongoose = require('mongoose');
+
+let { redirect_home, redirect_login } = require('./controllers/functions/redirect');
+
 require('dotenv').config();
 
 const app = express();
@@ -41,7 +44,7 @@ const blogsRouter = require('./routes/blogs');
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
 
-app.get('/', (req, res) => {
+app.get('/', redirect_home, (req, res) => {
     res.render('index', { title: 'HOME' });
 });
 

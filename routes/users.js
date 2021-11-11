@@ -12,10 +12,13 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post(userController.add_user);
 
+router.route('/login').get(redirect_home, (req, res) => {
+    res.render('login', { title: 'LOGIN' });
+});
+
 router.route('/login').post(userController.login_user);
 
-router.route('/login').get((req, res) => {
-    res.render('login', { title: 'LOGIN' });
-})
+router.route('/logout').get(userController.logout_user);
+
 
 module.exports = router;

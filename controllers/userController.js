@@ -66,16 +66,30 @@ const login_user = (req, res) => {
                 res.json('Error: There is no such user');
             }
             else{
-                if(password === data.password){
+                if(password === data[0].password){
                     req.session.username = username;
-
+                    res.redirect('/blogs');
+                }
+                else{
+                    console.log('Wrong Password');
+                    res.json('Error: Wrong Password');
                 }
             }
         }
     })
 }
 
+const logout_user = (req, res) => {
+    req.session.destroy( (err) => {
+        if(err){
+            res.redirect('/');
+        }
+    });
+    res.redirect('/');
+}
+
 module.exports = {
     add_user,
-    login_user
+    login_user,
+    logout_user
 }

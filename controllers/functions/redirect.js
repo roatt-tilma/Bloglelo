@@ -1,14 +1,19 @@
-const redirect_home = (req, res) => {
+const redirect_home = (req, res, next) => {
     if(req.session.username){
-        res.redirect('/home')
+        res.redirect('/blogs');
     }
     else{
-        res.redirect('/login');
+        next();
     }
 }
 
-const redirect_login = (req, res) => {
-
+const redirect_login = (req, res, next) => {
+    if(!req.session.username){
+        res.redirect('/login');
+    }
+    else{
+        next();
+    }
 }
 
 module.exports = {
