@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/blogspage.css">
+    <link rel="stylesheet" href="/CSS/new.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="showcontents">
+            <h4 class="title"><%= blog.title %></h4>
+            <div class="date">
+                <%= blog.createdAt.toLocaleDateString() %>
+            </div>
+            <div class="author">
+                Author
+            </div>
+            <p><div class="description"> <%= blog.description %> </div></p>
+        </div>
+
+        <h3><button  class="allblogsbtn" ><a href="/blogs">All Blogs</a></button></h3>
+    </div> 
+    
+</body>
+
+</html>

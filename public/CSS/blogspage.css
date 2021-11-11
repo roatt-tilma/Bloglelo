@@ -3,7 +3,8 @@
     text-decoration: none;
     color: white;
     padding : 8px 20px 8px 20px;
-    margin-left: 5%;
+    align-self: center;
+
 }
 
 .outer-wrap{
@@ -13,8 +14,9 @@
 }
 
 .heading{
-    margin-left : 5%;
-    margin-bottom: 3%;
+    text-align: center;
+    margin-top : 3%;
+    margin-bottom: 2%;
 }
 
 .contents{
@@ -32,4 +34,23 @@
 
 .description{
     font-size : 120%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.readmore{
+    height : 30px;
+    width : 100px;
+}
+
+.showcontents{
+    text-align: center;
+}
+
+.allblogsbtn{
+    align-self: center;
+    height: 30px;
+    width : 100px;
 }

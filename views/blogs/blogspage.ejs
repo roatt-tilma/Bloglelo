@@ -9,43 +9,39 @@
 
 <body>
 
-
-    <!-- <div class="container">
-        <h1 class="heading"> Blog Articles </h1>
-
-        <div class = "outer-wrap">
-            <div class="contents">
-                <h4 class="title">Title</h4>
-                <div class="date">
-                    Date Here
-                </div>
-                <div class="author">
-                    Author
-                </div>
-                <div class="description"> Article Description </div>
-            </div>
+    <section class="header">
+        <%- include('../partials/navbarafter.ejs') %>
+        <div class="text-box">
+            <h1>Blog Handim</h1>
+            <p>A platform for bloggers to compete and earn</p>
+            <a href="#avatar" class="linkbtn">Lets Blog</a>
         </div>
-    </div> -->
+    </section>
 
     <div class="container">
         <h1 class="heading"> Blog Articles </h1>
 
-        <a href="#" class = "createbtn"> Create new blog </a>
+        <h3 class="button"><a href="#" class = "createbtn"> Create new blog </a></h3>
 
-        <% blogs.forEach(blog => { %>
-        <div class = "outer-wrap">
-            <div class="contents">
-                <h4 class="title"><%= blog.title %></h4>
-                <div class="date">
-                    <%= blog.createdAt.toLocaleDateString() %>
+        <%- include('../partials/blogs.ejs') %>
+        <!-- <div class="row">
+            <% blogs.forEach(blog => { %>
+                <div class = "service-col">
+                    <div class="contents">
+                        <h4 class="title"><%= blog.title %></h4>
+                        <div class="date">
+                            <%= blog.createdAt.toLocaleDateString() %>
+                        </div>
+                        <div class="author">
+                            Author
+                        </div>
+                        <p><div class="description"> <%= blog.description %> </div></p>
+                    </div>
                 </div>
-                <div class="author">
-                    Author
-                </div>
-                <div class="description"> <%= blog.description %> </div>
-            </div>
-        </div>
-        <% }) %>
+                <% }) %>
+        
+        </div> -->
+        
     </div>
 
 
