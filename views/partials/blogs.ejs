@@ -1,0 +1,29 @@
+<% let count = 0 %>
+        <% blogs.forEach(blog => { %>
+            <% count = count + 1 %>
+        <% }) %> 
+        
+        <% for(let i=0;i<count;i=i+3) { %>
+            <section class="service">
+                <div class="row">
+                    <% for(j=0;j<3;j++) { %>
+                        <div class = "service-col">
+                            <div class="contents">
+                                <h4 class="title"><%= blogs[i+j].title %></h4>
+                                <div class="date">
+                                    <%= blogs[i+j].createdAt.toLocaleDateString() %>
+                                </div>
+                                <div class="author">
+                                    Author
+                                </div>
+                                <p><div class="description"> <%= blogs[i+j].description %> </div></p>
+                                <button class="readmore"><a href="blogs/<%= blogs[i+j].id %>">Read More</a></button>
+                            </div>
+                        </div>
+                        
+                        <% } %>
+                
+                </div>
+            </section>
+            
+        <% } %>
