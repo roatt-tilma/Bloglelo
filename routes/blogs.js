@@ -14,7 +14,8 @@ router.get('/new',(req,res)=>{
 router.get('/:id',async (req,res) => {
     const blog = await Blog.findById(req.params.id)
     if(blog==null) res.redirect('/')
-    res.redirect('/blogs')
+    res.render('blogs/show',{title: "Single blog", blog : blog})
+    // res.redirect('/blogs')
 })
 
 router.post('/',async (req,res) => {
