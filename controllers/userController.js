@@ -52,6 +52,30 @@ const add_user = (req, res) => {
 
 }
 
+const login_user = (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    User.find({ username: username }, (err, data) => {
+        if(err){
+            res.status(400).json('Error: ' + err);
+        }
+        else{
+            if(data.length === 0){
+                console.log('There is no such user');
+                res.json('Error: There is no such user');
+            }
+            else{
+                if(password === data.password){
+                    req.session.username = username;
+
+                }
+            }
+        }
+    })
+}
+
 module.exports = {
     add_user,
+    login_user
 }
