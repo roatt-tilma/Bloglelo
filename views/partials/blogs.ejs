@@ -7,6 +7,9 @@
             <section class="service">
                 <div class="row">
                     <% for(j=0;j<3;j++) { %>
+                        <% if(i+j >= count) { %>
+                            <% break %>
+                            <% } %>
                         <div class = "service-col">
                             <div class="contents">
                                 <h4 class="title"><%= blogs[i+j].title %></h4>

@@ -1,17 +1,18 @@
 const express = require('express')
 const Blog = require('../models/blog.model')
+let { redirect_home, redirect_login } = require('../controllers/functions/redirect');
 const router = express.Router()
 
-router.get('/',async (req,res)=>{
+router.route('/').get(redirect_login ,async (req,res)=>{
     const blogs = await Blog.find().sort({ createdAt: 'desc'})
     res.render('blogs/blogspage',{title : "BLOGS" , blogs : blogs});
 })
 
-router.get('/new',(req,res)=>{
+router.route('/new').get(redirect_login,(req,res)=>{
     res.render('blogs/new',{title:"new blog"})
 })
 
-router.get('/:id',async (req,res) => {
+router.route('/:id').get(redirect_login,async (req,res) => {
     const blog = await Blog.findById(req.params.id)
     if(blog==null) res.redirect('/')
     res.render('blogs/show',{title: "Single blog", blog : blog})
