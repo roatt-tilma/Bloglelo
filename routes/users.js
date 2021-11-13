@@ -20,5 +20,8 @@ router.route('/login').post(userController.login_user);
 
 router.route('/logout').get(userController.logout_user);
 
+router.use((req, res) => {
+    res.send("404 not found ");
+})
 
 module.exports = router;

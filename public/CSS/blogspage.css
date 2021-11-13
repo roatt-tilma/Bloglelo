@@ -1,10 +1,18 @@
 .createbtn{
-    background-color: rgb(27, 184, 27);
+    background-color: rgb(4, 77, 4);
     text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
     color: white;
-    padding : 8px 20px 8px 20px;
+    padding : 12px 20px 12px 20px;
     align-self: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 20px;
+}
 
+.createbtn:hover{
+    background-color: rgba(4, 77, 4, 0.904);
+    font-size: 22px;
 }
 
 .outer-wrap{
@@ -17,6 +25,7 @@
     text-align: center;
     margin-top : 3%;
     margin-bottom: 2%;
+    font-size: 64px;
 }
 
 .contents{
@@ -38,11 +47,23 @@
 
 a{
     text-decoration: none;
+    color: #ff3d3d;
 }
 
+.allblogsbtn,
 .readmore{
     height : 30px;
     width : 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff3f3;
+    align-items: center;
+    padding: 5px;
+}
+
+.allblogsbtn:hover,
+.readmore:hover{
+    background-color: #ffd4d4;
 }
 
 .showcontents{

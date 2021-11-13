@@ -51,3 +51,6 @@ app.get('/', redirect_home, (req, res) => {
     res.render('index', { title: 'HOME' });
 });
 
+app.use((req, res) => {
+    res.send("404 not found ");
+})

@@ -14,12 +14,12 @@
                             <div class="contents">
                                 <h4 class="title"><%= blogs[i+j].title %></h4>
                                 <div class="date">
-                                    <%= blogs[i+j].createdAt.toLocaleDateString() %>
+                                    <%= blogs[i+j].createdAt.toLocaleDateString()+" "+blogs[i+j].createdAt.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' }) %>
                                 </div>
                                 <div class="author">
-                                    Author
+                                    <%= blogs[i+j].author %>
                                 </div>
-                                <p><div class="description"> <%= blogs[i+j].description %> </div></p>
+                                <p><div class="description"> <%= blogs[i+j].description.slice(0, 50) %> </div></p>
                                 <button class="readmore"><a href="blogs/<%= blogs[i+j].id %>">Read More</a></button>
                             </div>
                         </div>

@@ -17,12 +17,12 @@
                 <%= blog.createdAt.toLocaleDateString() %>
             </div>
             <div class="author">
-                Author
+                <%= blog.author %>
             </div>
             <p><div class="description"> <%= blog.description %> </div></p>
         </div>
 
-        <h3><button  class="allblogsbtn" ><a href="/blogs">All Blogs</a></button></h3>
+        <h3><button  class="allblogsbtn" ><a href="/blogs#heading">All Blogs</a></button></h3>
     </div> 
 
     <%- include('../partials/footer.ejs') %>

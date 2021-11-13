@@ -13,9 +13,17 @@ router.route('/new').get(redirect_login,(req,res)=>{
 })
 
 router.route('/:id').get(redirect_login,async (req,res) => {
-    const blog = await Blog.findById(req.params.id)
-    if(blog==null) res.redirect('/')
-    res.render('blogs/show',{title: "Single blog", blog : blog})
+    try{
+        const blog = await Blog.findById(req.params.id)
+        if(blog===null){
+            res.send("404 not found ");
+        }
+        res.render('blogs/show',{title: "Single blog", blog : blog})
+    }
+    catch(e){
+        res.send("404 not found ");
+    }
+    
     // res.redirect('/blogs')
 })
 
@@ -33,6 +41,10 @@ router.post('/',async (req,res) => {
         res.render('blogs/new');
     }
    
+})
+
+router.use((req, res) => {
+    res.send("404 not found ");
 })
 
 module.exports = router
