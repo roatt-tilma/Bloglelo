@@ -56,10 +56,16 @@ const add_user = (req, res) => {
 }
 
 const login_user = (req, res) => {
+    
+    console.log(res);
+
     const username = req.body.username;
     const password = req.body.password;
 
-    User.find({ username: username }, (err, data) => {
+    console.log(username);
+    console.log(password);
+
+     User.find({ username: username }, async (err, data) => {
         if(err){
             res.status(400).json('Error: ' + err);
         }
@@ -71,8 +77,9 @@ const login_user = (req, res) => {
             else{
                 if(password === data[0].password){
                     localStorage.setItem('username',username);
-                    req.session.username = username;
+                    req.session.username = username;   
                     res.redirect('/blogs');
+                    
                 }
                 else{
                     console.log('Wrong Password');
