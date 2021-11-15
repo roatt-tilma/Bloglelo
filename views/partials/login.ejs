@@ -1,12 +1,44 @@
 <div class="login-box" id = "login-box">
     <img src="/images/avatar.png" alt="avatar" class="avatar" id = "avatar">
     <h1>Log in Here</h1>
-    <form action="/users/login" method="post">
+    <!-- <form action="/users/login" method="post"> -->
+    <form>
         <label for="username">Username</label>
-        <input type="text" name="username" placeholder="Enter Username">
+        <input type="text" name="username" placeholder="Enter Username" id="username">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Enter Password">
-        <input type="submit" name="submit" value="login">
+        <input type="password" name="password" placeholder="Enter Password" id="password">
+        <input type="submit" name="submit" value="login" id="submit">
+        
         <a href="/#avatar">Don't have an account?</a>
     </form>
+
+    <script>
+        const submit = document.querySelector('#submit')
+
+        submit.addEventListener("click", (e) => {
+            e.preventDefault()
+            const usernameField = document.querySelector('#username')
+            const passwordField = document.querySelector('#password')
+
+            sessionStorage.setItem('userbeforever',usernameField.value);
+
+            fetch("http://localhost:3000/users/login",{
+                method : "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({
+                    username : usernameField.value,
+                    password : passwordField.value,
+                    str : sessionStorage,
+                }),
+            }).then((response)=>{
+                window.location.href = "http://localhost:3000/blogs"
+            }).catch((err)=>{
+                console.log(err);
+            })
+        } )
+        
+    </script>
+
 </div>

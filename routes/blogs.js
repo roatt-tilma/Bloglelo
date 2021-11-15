@@ -1,10 +1,9 @@
 const express = require('express')
 const Blog = require('../models/blog.model')
 let { redirect_home, redirect_login } = require('../controllers/functions/redirect');
+
 const router = express.Router()
 
-var LocalStorage = require('node-localstorage').LocalStorage,
-localStorage = new LocalStorage('./scratch');
 
 router.route('/').get(redirect_login ,async (req,res)=>{
     const blogs = await Blog.find().sort({ createdAt: 'desc'})
@@ -26,15 +25,15 @@ router.route('/:id').get(redirect_login,async (req,res) => {
     catch(e){
         res.send("404 not found ");
     }
-    
-    // res.redirect('/blogs')
+
 })
 
 router.post('/',async (req,res) => {
+    const userController = require('../controllers/userController')
     const blog = new Blog({
         title : req.body.title,
         description : req.body.description,
-        author : localStorage.getItem('username'),
+        author : userController.usr.username,
     })
 
     try{

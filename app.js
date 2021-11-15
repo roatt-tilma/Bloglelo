@@ -3,9 +3,6 @@ const cors = require('cors');
 const session = require('express-session');
 const mongoose = require('mongoose');
 
-var LocalStorage = require('node-localstorage').LocalStorage,
-localStorage = new LocalStorage('./scratch');
-
 let { redirect_home, redirect_login } = require('./controllers/functions/redirect');
 
 require('dotenv').config();

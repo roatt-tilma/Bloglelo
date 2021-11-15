@@ -1,8 +1,8 @@
-var LocalStorage = require('node-localstorage').LocalStorage,
-localStorage = new LocalStorage('./scratch');
 
 const redirect_home = (req, res, next) => {
-    if(localStorage.getItem('username')){
+    const userController = require('../../controllers/userController');
+    var size = Object.keys(userController.usr).length;
+    if(size && userController.usr.userbeforever == userController.usr.username){
         res.redirect('/blogs');
     }
     else{
@@ -11,7 +11,11 @@ const redirect_home = (req, res, next) => {
 }
 
 const redirect_login = (req, res, next) => {
-    if(!localStorage.getItem('username')){
+    console.log(req.session);
+    console.log(req.body);
+    const userController = require('../../controllers/userController');
+    var size = Object.keys(userController.usr).length;
+    if( !size || userController.usr.userbeforever != userController.usr.username){
         res.redirect('/users/login');
     }
     else{
