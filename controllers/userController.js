@@ -1,8 +1,5 @@
 let User = require('../models/user.model');
 
-var LocalStorage = require('node-localstorage').LocalStorage,
-localStorage = new LocalStorage('./scratch');
-
 const add_user = (req, res) => {
     const username = req.body.username;
     const email = req.body.email;
@@ -55,7 +52,10 @@ const add_user = (req, res) => {
 
 }
 
+var usr = {}
+
 const login_user = (req, res) => {
+
     const username = req.body.username;
     const password = req.body.password;
 
@@ -70,8 +70,9 @@ const login_user = (req, res) => {
             }
             else{
                 if(password === data[0].password){
-                    localStorage.setItem('username',username);
-                    req.session.username = username;
+                    req.body.str.username = username;
+                    usr = req.body.str;
+                    expo();
                     res.redirect('/blogs');
                 }
                 else{
@@ -83,13 +84,25 @@ const login_user = (req, res) => {
     })
 }
 
+
 const logout_user = (req, res) => {
-    localStorage.removeItem('username');
+    for (var member in usr) delete usr[member];
     res.redirect('/');
+}
+
+function expo() {
+    module.exports = {
+        add_user,
+        login_user,
+        logout_user,
+        usr
+    }
 }
 
 module.exports = {
     add_user,
     login_user,
-    logout_user
+    logout_user,
+    usr
 }
+
