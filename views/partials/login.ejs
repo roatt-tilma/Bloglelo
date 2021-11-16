@@ -33,7 +33,12 @@
                     str : sessionStorage,
                 }),
             }).then((response)=>{
-                window.location.href = "http://localhost:3000/blogs"
+                if(window.location.href="http://localhost:3000/users/login"){
+                    window.location.href = "http://localhost:3000/blogs";
+                }else{
+                    window.location.href = "https://bloglelo.herokuapp.com/blogs";
+                }
+                
             }).catch((err)=>{
                 console.log(err);
             })
