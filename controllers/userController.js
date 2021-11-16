@@ -59,9 +59,6 @@ const login_user = (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    console.log(username);
-    console.log(password);
-
      User.find({ username: username }, async (err, data) => {
         if(err){
             res.status(400).json('Error: ' + err);
