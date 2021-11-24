@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/blogspage.css">
     <link rel="stylesheet" href="/CSS/new.css">
+    <link rel="stylesheet" href="/CSS/show.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 
@@ -12,18 +13,36 @@
 
     <div class="container">
         <div class="showcontents">
-            <h4 class="title"><%= blog.title %></h4>
-            <div class="date">
+            <h4 class="title" id="title"><%= blog.title %></h4>
+            <div class="date" id="date">
                 <%= blog.createdAt.toLocaleDateString() %>
             </div>
             <div class="author">
                 <%= blog.author %>
             </div>
-            <p><div class="description"> <%= blog.description %> </div></p>
+            <p><div class="description" id="description"> <%= blog.description %> </div></p>
         </div>
 
         <h3><button  class="allblogsbtn" ><a href="/blogs#heading">All Blogs</a></button></h3>
     </div> 
+    <script>
+        const date = document.querySelector('#date');
+        const datVal = date.innerHTML;
+        date.innerHTML = `${datVal}`;
+
+        const title = document.querySelector('#title');
+        const titVal = title.innerText;
+        console.log(titVal);
+        title.innerHTML = `${titVal}`;
+        // title.innerText = titVal;
+
+        const description = document.querySelector('#description');
+        const desVal = description.innerText;
+        console.log(desVal);
+        description.innerHTML = `${desVal}`;
+        // description.innerText = desVal;
+
+    </script>
 
     <%- include('../partials/footer.ejs') %>
     

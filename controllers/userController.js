@@ -59,7 +59,7 @@ const login_user = (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-     User.find({ username: username }, async (err, data) => {
+     User.find({ username: req.body.username, password : req.body.password }, async (err, data) => { 
         if(err){
             res.status(400).json('Error: ' + err);
         }
@@ -69,17 +69,21 @@ const login_user = (req, res) => {
                 res.json('Error: There is no such user');
             }
             else{
-                if(password === data[0].password){
-                    req.body.str.username = username;
-                    usr = req.body.str;
-                    expo();
-                    res.redirect('/blogs');
+                // if(password === data[0].password){
+                //     req.body.str.username = username;
+                //     usr = req.body.str;
+                //     expo();
+                //     res.redirect('/blogs');
                     
-                }
-                else{
-                    console.log('Wrong Password');
-                    res.json('Error: Wrong Password');
-                }
+                // }
+                // else{
+                //     console.log('Wrong Password');
+                //     res.json('Error: Wrong Password');
+                // }
+                req.body.str.username = username;
+                usr = req.body.str;
+                expo();
+                res.redirect('/blogs');
             }
         }
     })
